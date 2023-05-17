@@ -221,7 +221,7 @@
 				/>
 			</div>
 			<div class="connect-row">
-				<label for="connect:realname">Display name/identity (spaces and special characters allowed) e.g. Dr. Jamie Example</label>
+				<label for="connect:realname">WHOIS name/identity (spaces and special characters allowed, shown in /whois) e.g. Dr. Jamie Example</label>
 				<input
 					id="connect:realname"
 					v-model.trim="defaults.realname"
