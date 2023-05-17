@@ -251,7 +251,7 @@ p {
 .container {
 	padding: 0 15px;
 	margin-bottom: 20px;
-	width: 800px;
+	width: 480px;
 	align-self: center;
 	touch-action: pan-y;
 }
@@ -1882,6 +1882,10 @@ part/quit messages where we don't load previews (adds a blank line otherwise) */
 
 #connect .connect-row {
 	display: flex;
+	border-bottom: 1px solid;
+	border-color: var(--window-heading-color);
+	margin-bottom: 15px;
+	padding-bottom: 5px;
 }
 
 #connect .connect-row > .input,
@@ -1890,7 +1894,7 @@ part/quit messages where we don't load previews (adds a blank line otherwise) */
 }
 
 #connect label {
-	width: 50%;
+	width: 60%;
 	flex-shrink: 0;
 	margin-top: 11px;
 }
