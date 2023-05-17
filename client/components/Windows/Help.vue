@@ -8,63 +8,36 @@
 
 			<h2 class="help-version-title">
 				<span>About The Lounge</span>
-				<small>
-					v{{ store.state.serverConfiguration?.version }} (<router-link
-						id="view-changelog"
-						to="/changelog"
-						>release notes</router-link
-					>)
-				</small>
+				<small> v{{ store.state.serverConfiguration?.version }} </small>
 			</h2>
 
 			<div class="about">
-				<VersionChecker />
-
-				<template v-if="store.state.serverConfiguration?.gitCommit">
-					<p>
-						The Lounge is running from source (<a
-							:href="`https://github.com/thelounge/thelounge/tree/${store.state.serverConfiguration?.gitCommit}`"
-							target="_blank"
-							rel="noopener"
-							>commit <code>{{ store.state.serverConfiguration?.gitCommit }}</code></a
-						>).
-					</p>
-
-					<ul>
-						<li>
-							Compare
-							<a
-								:href="`https://github.com/thelounge/thelounge/compare/${store.state.serverConfiguration?.gitCommit}...master`"
-								target="_blank"
-								rel="noopener"
-								>between
-								<code>{{ store.state.serverConfiguration?.gitCommit }}</code> and
-								<code>master</code></a
-							>
-							to see what you are missing
-						</li>
-						<li>
-							Compare
-							<a
-								:href="`https://github.com/thelounge/thelounge/compare/${store.state.serverConfiguration?.version}...${store.state.serverConfiguration?.gitCommit}`"
-								target="_blank"
-								rel="noopener"
-								>between
-								<code>{{ store.state.serverConfiguration?.version }}</code> and
-								<code>{{ store.state.serverConfiguration?.gitCommit }}</code></a
-							>
-							to see your local changes
-						</li>
-					</ul>
-				</template>
-
+				<p>This is a lightly customized fork of The Lounge, maintained by Kufat.</p>
 				<p>
 					<a
 						href="https://thelounge.chat/"
 						target="_blank"
 						rel="noopener"
 						class="website-link"
-						>Website</a
+						>The Lounge's official Website</a
+					>
+				</p>
+				<p>
+					<a
+						href="https://www.scpwiki.com/chat-guide"
+						target="_blank"
+						rel="noopener"
+						class="documentation-link"
+						>SCP Wiki Chat Guide</a
+					>
+				</p>
+				<p>
+					<a
+						href="https://skipirc.miraheze.org/wiki"
+						target="_blank"
+						rel="noopener"
+						class="documentation-link"
+						>SkipIRC home page</a
 					>
 				</p>
 				<p>
@@ -78,11 +51,11 @@
 				</p>
 				<p>
 					<a
-						href="https://github.com/thelounge/thelounge/issues/new"
+						href="https://github.com/kufat/thelounge/issues/new"
 						target="_blank"
 						rel="noopener"
 						class="report-issue-link"
-						>Report an issue…</a
+						>Report an issue… (SkipIRC fork)</a
 					>
 				</p>
 			</div>
