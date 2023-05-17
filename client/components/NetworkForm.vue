@@ -11,17 +11,15 @@
 				</template>
 				<template v-else>
 					Connect
-					<template
-						v-if="config?.lockNetwork && store?.state.serverConfiguration?.public"
-					>
-						to {{ defaults.name }}
-					</template>
+					<template v-if="config?.lockNetwork"> to {{ defaults.name }} </template>
 				</template>
 			</h1>
 
 			<h2>User preferences</h2>
 			<div class="connect-row">
-				<label for="connect:nick">Registered nickname (no spaces or special characters) e.g. DrExample</label>
+				<label for="connect:nick"
+					>Registered nickname (no spaces or special characters) e.g. DrExample</label
+				>
 				<input
 					id="connect:nick"
 					v-model="defaults.nick"
@@ -34,7 +32,10 @@
 				/>
 			</div>
 			<div class="connect-row">
-				<label for="connect:realname">WHOIS name/identity (spaces and special characters allowed, shown in /whois) e.g. Dr. Jamie Example</label>
+				<label for="connect:realname"
+					>WHOIS name/identity (spaces and special characters allowed, shown in /whois)
+					e.g. Dr. Jamie Example</label
+				>
 				<input
 					id="connect:realname"
 					v-model.trim="defaults.realname"
@@ -44,7 +45,9 @@
 				/>
 			</div>
 			<div class="connect-row">
-				<label for="connect:leaveMessage">Leave message (displayed when you disconnect)</label>
+				<label for="connect:leaveMessage"
+					>Leave message (displayed when you disconnect)</label
+				>
 				<input
 					id="connect:leaveMessage"
 					v-model.trim="defaults.leaveMessage"
@@ -206,9 +209,14 @@ the server tab on new connection"
 				</button>
 			</div>
 		</form>
-		<p><a href="https://skipirc.miraheze.org/wiki/Main_Page">SkipIRC rules and information</a></p>
+		<p>
+			<a href="https://skipirc.miraheze.org/wiki/Main_Page">SkipIRC rules and information</a>
+		</p>
 		<p><a href="https://scp-wiki.wikidot.com/chat-guide">SCP Wiki chat guide</a></p>
-		<p>If you run into any difficulties, please <a href="mailto:kufat@kufat.net">contact Kufat</a>. Thanks for using SkipIRC!</p>
+		<p>
+			If you run into any difficulties, please
+			<a href="mailto:kufat@kufat.net">contact Kufat</a>. Thanks for using SkipIRC!
+		</p>
 	</div>
 </template>
 

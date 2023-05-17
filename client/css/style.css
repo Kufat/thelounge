@@ -251,7 +251,7 @@ p {
 .container {
 	padding: 0 15px;
 	margin-bottom: 20px;
-	width: 480px;
+	width: 800px;
 	align-self: center;
 	touch-action: pan-y;
 }
@@ -1890,7 +1890,7 @@ part/quit messages where we don't load previews (adds a blank line otherwise) */
 }
 
 #connect label {
-	width: 25%;
+	width: 50%;
 	flex-shrink: 0;
 	margin-top: 11px;
 }
