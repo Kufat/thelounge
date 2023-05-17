@@ -18,197 +18,10 @@
 					</template>
 				</template>
 			</h1>
-			<template v-if="!config?.lockNetwork">
-				<h2>Network settings</h2>
-				<div class="connect-row">
-					<label for="connect:name">Name</label>
-					<input
-						id="connect:name"
-						v-model.trim="defaults.name"
-						class="input"
-						name="name"
-						maxlength="100"
-					/>
-				</div>
-				<div class="connect-row">
-					<label for="connect:host">Server</label>
-					<div class="input-wrap">
-						<input
-							id="connect:host"
-							v-model.trim="defaults.host"
-							class="input"
-							name="host"
-							aria-label="Server address"
-							maxlength="255"
-							required
-						/>
-						<span id="connect:portseparator">:</span>
-						<input
-							id="connect:port"
-							v-model="defaults.port"
-							class="input"
-							type="number"
-							min="1"
-							max="65535"
-							name="port"
-							aria-label="Server port"
-						/>
-					</div>
-				</div>
-				<div class="connect-row">
-					<label for="connect:password">Password</label>
-					<RevealPassword
-						v-slot:default="slotProps"
-						class="input-wrap password-container"
-					>
-						<input
-							id="connect:password"
-							v-model="defaults.password"
-							class="input"
-							:type="slotProps.isVisible ? 'text' : 'password'"
-							placeholder="Server password (optional)"
-							name="password"
-							maxlength="300"
-						/>
-					</RevealPassword>
-				</div>
-				<div class="connect-row">
-					<label></label>
-					<div class="input-wrap">
-						<label class="tls">
-							<input
-								v-model="defaults.tls"
-								type="checkbox"
-								name="tls"
-								:disabled="defaults.hasSTSPolicy"
-							/>
-							Use secure connection (TLS)
-							<span
-								v-if="defaults.hasSTSPolicy"
-								class="tooltipped tooltipped-n tooltipped-no-delay"
-								aria-label="This network has a strict transport security policy, you will be unable to disable TLS"
-								>🔒 STS</span
-							>
-						</label>
-						<label class="tls">
-							<input
-								v-model="defaults.rejectUnauthorized"
-								type="checkbox"
-								name="rejectUnauthorized"
-							/>
-							Only allow trusted certificates
-						</label>
-					</div>
-				</div>
-
-				<h2>Proxy Settings</h2>
-				<div class="connect-row">
-					<label></label>
-					<div class="input-wrap">
-						<label for="connect:proxyEnabled">
-							<input
-								id="connect:proxyEnabled"
-								v-model="defaults.proxyEnabled"
-								type="checkbox"
-								name="proxyEnabled"
-							/>
-							Enable Proxy
-						</label>
-					</div>
-				</div>
-				<template v-if="defaults.proxyEnabled">
-					<div class="connect-row">
-						<label for="connect:proxyHost">SOCKS Address</label>
-						<div class="input-wrap">
-							<input
-								id="connect:proxyHost"
-								v-model.trim="defaults.proxyHost"
-								class="input"
-								name="proxyHost"
-								aria-label="Proxy host"
-								maxlength="255"
-							/>
-							<span id="connect:proxyPortSeparator">:</span>
-							<input
-								id="connect:proxyPort"
-								v-model="defaults.proxyPort"
-								class="input"
-								type="number"
-								min="1"
-								max="65535"
-								name="proxyPort"
-								aria-label="SOCKS port"
-							/>
-						</div>
-					</div>
-
-					<div class="connect-row">
-						<label for="connect:proxyUsername">Proxy username</label>
-						<input
-							id="connect:proxyUsername"
-							ref="proxyUsernameInput"
-							v-model.trim="defaults.proxyUsername"
-							class="input username"
-							name="proxyUsername"
-							maxlength="100"
-							placeholder="Proxy username"
-						/>
-					</div>
-
-					<div class="connect-row">
-						<label for="connect:proxyPassword">Proxy password</label>
-						<RevealPassword
-							v-slot:default="slotProps"
-							class="input-wrap password-container"
-						>
-							<input
-								id="connect:proxyPassword"
-								ref="proxyPassword"
-								v-model="defaults.proxyPassword"
-								class="input"
-								:type="slotProps.isVisible ? 'text' : 'password'"
-								placeholder="Proxy password"
-								name="proxyPassword"
-								maxlength="300"
-							/>
-						</RevealPassword>
-					</div>
-				</template>
-			</template>
-			<template v-else-if="config.lockNetwork && !store.state.serverConfiguration?.public">
-				<h2>Network settings</h2>
-				<div class="connect-row">
-					<label for="connect:name">Name</label>
-					<input
-						id="connect:name"
-						v-model.trim="defaults.name"
-						class="input"
-						name="name"
-						maxlength="100"
-					/>
-				</div>
-				<div class="connect-row">
-					<label for="connect:password">Password</label>
-					<RevealPassword
-						v-slot:default="slotProps"
-						class="input-wrap password-container"
-					>
-						<input
-							id="connect:password"
-							v-model="defaults.password"
-							class="input"
-							:type="slotProps.isVisible ? 'text' : 'password'"
-							placeholder="Server password (optional)"
-							name="password"
-							maxlength="300"
-						/>
-					</RevealPassword>
-				</div>
-			</template>
 
 			<h2>User preferences</h2>
 			<div class="connect-row">
-				<label for="connect:nick">Nick (no spaces or special characters) e.g. DrExample</label>
+				<label for="connect:nick">Registered nickname (no spaces or special characters) e.g. DrExample</label>
 				<input
 					id="connect:nick"
 					v-model="defaults.nick"
@@ -393,6 +206,9 @@ the server tab on new connection"
 				</button>
 			</div>
 		</form>
+		<p><a href="https://skipirc.miraheze.org/wiki/Main_Page">SkipIRC rules and information</a></p>
+		<p><a href="https://scp-wiki.wikidot.com/chat-guide">SCP Wiki chat guide</a></p>
+		<p>If you run into any difficulties, please <a href="mailto:kufat@kufat.net">contact Kufat</a>. Thanks for using SkipIRC!</p>
 	</div>
 </template>
 
