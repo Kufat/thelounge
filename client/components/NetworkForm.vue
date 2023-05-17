@@ -28,7 +28,7 @@
 				<label for="connect:nick"
 					><p><b>Registered nickname</b></p>
 					<p>No spaces or special characters</p>
-					<p>e.g. DrExample</p></label
+					<p>e.g. <code>DrExample</code></p></label
 				>
 				<input
 					id="connect:nick"
@@ -44,8 +44,8 @@
 			<div class="connect-row">
 				<label for="connect:realname"
 					><p><b>WHOIS name/identity</b></p>
-					<p>Spaces and special characters allowed, shown in /whois</p>
-					<p>e.g. Dr. Jamie Example</p>
+					<p>Spaces and special characters allowed, shown in <code>/whois</code></p>
+					<p>e.g. <code>Dr. Jamie Example</code></p>
 					<p></p
 				></label>
 
@@ -60,8 +60,9 @@
 			<div class="connect-row">
 				<label for="connect:leaveMessage"
 					><p><b>Leave message</b></p>
-					<p>Displayed when you disconnect</p></label
-				>
+					<p>Displayed when you disconnect</p>
+					<p
+				/></label>
 				<input
 					id="connect:leaveMessage"
 					v-model.trim="defaults.leaveMessage"
@@ -74,8 +75,7 @@
 			<div class="connect-row">
 				<label for="connect:commands">
 					<p><b>Commands to run on connect</b></p>
-					<p>e.g.</p>
-					<pre><code>/join #site19</code></pre>
+					<p>e.g. <code>/join #site19</code></p>
 					<span
 						class="tooltipped tooltipped-ne tooltipped-no-delay"
 						aria-label="One /command per line.
@@ -161,7 +161,7 @@ the server tab on new connection"
 							value="external"
 							@change="setSaslAuth('external')"
 						/>
-						Client certificate (SASL EXTERNAL)
+						<b>Recommended</b>: client certificate (SASL EXTERNAL)
 					</label>
 				</div>
 
