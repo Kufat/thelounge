@@ -324,7 +324,7 @@ export default async function (
 				});
 		}
 
-		changelog.checkForUpdates(manager);
+		// changelog.checkForUpdates(manager);
 	});
 
 	return server;
@@ -879,8 +879,8 @@ function getClientConfiguration(): ClientConfiguration {
 			"password",
 			"realname",
 			"join",
-		    "tls",
-		    "uuid"
+			"tls",
+			"uuid",
 		]) as Defaults;
 	}
 
