@@ -9,16 +9,26 @@
 					<input v-model="defaults.uuid" type="hidden" name="uuid" />
 					Edit {{ defaults.name }}
 				</template>
-				<template v-else>
-					Connect
-					<template v-if="config?.lockNetwork"> to {{ defaults.name }} </template>
-				</template>
+				<template v-else> Connect to {{ defaults.name }} </template>
 			</h1>
+
+			<p>
+				<a href="https://skipirc.miraheze.org/wiki/Main_Page"
+					>SkipIRC rules and information</a
+				>
+			</p>
+			<p><a href="https://scp-wiki.wikidot.com/chat-guide">SCP Wiki chat guide</a></p>
+			<p>
+				If you run into any difficulties, please
+				<a href="mailto:kufat@kufat.net">contact Kufat</a>. Thanks for using SkipIRC!
+			</p>
 
 			<h2>User preferences</h2>
 			<div class="connect-row">
 				<label for="connect:nick"
-					>Registered nickname (no spaces or special characters) e.g. DrExample</label
+					><p><b>Registered nickname</b></p>
+					<p>No spaces or special characters</p>
+					<p>e.g. DrExample</p></label
 				>
 				<input
 					id="connect:nick"
@@ -33,9 +43,12 @@
 			</div>
 			<div class="connect-row">
 				<label for="connect:realname"
-					>WHOIS name/identity (spaces and special characters allowed, shown in /whois)
-					e.g. Dr. Jamie Example</label
-				>
+					><p><b>WHOIS name/identity</b></p>
+					<p>Spaces and special characters allowed, shown in /whois</p>
+					<p>e.g. Dr. Jamie Example</p>
+					<p></p
+				></label>
+
 				<input
 					id="connect:realname"
 					v-model.trim="defaults.realname"
@@ -46,7 +59,8 @@
 			</div>
 			<div class="connect-row">
 				<label for="connect:leaveMessage"
-					>Leave message (displayed when you disconnect)</label
+					><p><b>Leave message</b></p>
+					<p>Displayed when you disconnect</p></label
 				>
 				<input
 					id="connect:leaveMessage"
@@ -57,41 +71,30 @@
 					placeholder="The Lounge - https://thelounge.chat"
 				/>
 			</div>
-			<template v-if="defaults.uuid && !store.state.serverConfiguration?.public">
-				<div class="connect-row">
-					<label for="connect:commands">
-						Commands
-						<span
-							class="tooltipped tooltipped-ne tooltipped-no-delay"
-							aria-label="One /command per line.
+			<div class="connect-row">
+				<label for="connect:commands">
+					<p><b>Commands to run on connect</b></p>
+					<p>e.g.</p>
+					<pre><code>/join #site19</code></pre>
+					<span
+						class="tooltipped tooltipped-ne tooltipped-no-delay"
+						aria-label="One /command per line.
 Each command will be executed in
 the server tab on new connection"
-						>
-							<button class="extra-help" />
-						</span>
-					</label>
-					<textarea
-						id="connect:commands"
-						ref="commandsInput"
-						autocomplete="off"
-						:value="defaults.commands ? defaults.commands.join('\n') : ''"
-						class="input"
-						name="commands"
-						@input="resizeCommandsInput"
-					/>
-				</div>
-			</template>
-			<template v-else-if="!defaults.uuid">
-				<div class="connect-row">
-					<label for="connect:channels">Channels</label>
-					<input
-						id="connect:channels"
-						v-model.trim="defaults.join"
-						class="input"
-						name="join"
-					/>
-				</div>
-			</template>
+					>
+						<button class="extra-help" />
+					</span>
+				</label>
+				<textarea
+					id="connect:commands"
+					ref="commandsInput"
+					autocomplete="off"
+					:value="defaults.commands ? defaults.commands.join('\n') : ''"
+					class="input"
+					name="commands"
+					@input="resizeCommandsInput"
+				/>
+			</div>
 
 			<template v-if="store.state.serverConfiguration?.public">
 				<template v-if="config?.lockNetwork">
@@ -209,14 +212,6 @@ the server tab on new connection"
 				</button>
 			</div>
 		</form>
-		<p>
-			<a href="https://skipirc.miraheze.org/wiki/Main_Page">SkipIRC rules and information</a>
-		</p>
-		<p><a href="https://scp-wiki.wikidot.com/chat-guide">SCP Wiki chat guide</a></p>
-		<p>
-			If you run into any difficulties, please
-			<a href="mailto:kufat@kufat.net">contact Kufat</a>. Thanks for using SkipIRC!
-		</p>
 	</div>
 </template>
 
