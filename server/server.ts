@@ -879,6 +879,8 @@ function getClientConfiguration(): ClientConfiguration {
 			"password",
 			"realname",
 			"join",
+		    "tls",
+		    "uuid"
 		]) as Defaults;
 	}
 
