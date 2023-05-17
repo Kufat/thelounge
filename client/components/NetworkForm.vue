@@ -208,7 +208,7 @@
 
 			<h2>User preferences</h2>
 			<div class="connect-row">
-				<label for="connect:nick">Nick</label>
+				<label for="connect:nick">Nick (no spaces or special characters) e.g. DrExample</label>
 				<input
 					id="connect:nick"
 					v-model="defaults.nick"
@@ -220,21 +220,8 @@
 					@input="onNickChanged"
 				/>
 			</div>
-			<template v-if="!config?.useHexIp">
-				<div class="connect-row">
-					<label for="connect:username">Username</label>
-					<input
-						id="connect:username"
-						ref="usernameInput"
-						v-model.trim="defaults.username"
-						class="input username"
-						name="username"
-						maxlength="100"
-					/>
-				</div>
-			</template>
 			<div class="connect-row">
-				<label for="connect:realname">Real name</label>
+				<label for="connect:realname">Display name/identity (spaces and special characters allowed) e.g. Dr. Jamie Example</label>
 				<input
 					id="connect:realname"
 					v-model.trim="defaults.realname"
@@ -244,7 +231,7 @@
 				/>
 			</div>
 			<div class="connect-row">
-				<label for="connect:leaveMessage">Leave message</label>
+				<label for="connect:leaveMessage">Leave message (displayed when you disconnect)</label>
 				<input
 					id="connect:leaveMessage"
 					v-model.trim="defaults.leaveMessage"
