@@ -1894,7 +1894,7 @@ part/quit messages where we don't load previews (adds a blank line otherwise) */
 }
 
 #connect label {
-	width: 60%;
+	width: 50%;
 	flex-shrink: 0;
 	margin-top: 11px;
 }
