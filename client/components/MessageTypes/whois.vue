@@ -36,7 +36,9 @@
 
 			<template v-if="message.whois.real_name">
 				<dt>Real name:</dt>
-				<dd><ParsedMessage :network="network" :text="message.whois.real_name" /></dd>
+				<dd>
+					<ParsedMessage :network="network" :text="message.whois.real_name" />
+				</dd>
 			</template>
 
 			<template v-if="message.whois.registered_nick">
@@ -46,7 +48,9 @@
 
 			<template v-if="message.whois.channels">
 				<dt>Channels:</dt>
-				<dd><ParsedMessage :network="network" :text="message.whois.channels" /></dd>
+				<dd>
+					<ParsedMessage :network="network" :text="message.whois.channels" />
+				</dd>
 			</template>
 
 			<template v-if="message.whois.modes">
@@ -56,8 +60,8 @@
 
 			<template v-if="message.whois.special">
 				<template v-for="special in message.whois.special" :key="special">
-					<dt>Special:</dt>
-					<dd>{{ special }}</dd>
+					<dt>{{ handleSpecial(special)[0] }}</dt>
+					<dd>{{ handleSpecial(special)[1] }}</dd>
 				</template>
 			</template>
 
@@ -78,7 +82,9 @@
 
 			<template v-if="message.whois.away">
 				<dt>Away:</dt>
-				<dd><ParsedMessage :network="network" :text="message.whois.away" /></dd>
+				<dd>
+					<ParsedMessage :network="network" :text="message.whois.away" />
+				</dd>
 			</template>
 
 			<template v-if="message.whois.secure">
@@ -137,6 +143,22 @@ export default defineComponent({
 	setup() {
 		return {
 			localetime: (date: Date) => localetime(date),
+			// TODO, probably make this computed once I figure out how
+			handleSpecial(special: string): [string, string] {
+				const IDENTIFIES_AS: string = "identifies as ";
+				if (special.startsWith(IDENTIFIES_AS)) {
+					return ["Identifies as:", special.substring(IDENTIFIES_AS.length)];
+				}
+				let colon: number = special.indexOf(":");
+				if (-1 != colon) {
+					return [
+						special.substring(0, 1).toLocaleUpperCase() +
+							special.substring(1, colon + 1),
+						special.substring(colon + 2),
+					];
+				}
+				return ["Special:", special];
+			},
 		};
 	},
 });
