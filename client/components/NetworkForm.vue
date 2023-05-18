@@ -182,11 +182,11 @@
 				</template>
 			</template>
 			<div class="connect-row">
-				<label for="connect:nick"
-					><p><b>Registered nickname</b></p>
+				<label for="connect:nick">
+					<p><b>Registered nickname</b></p>
 					<p>No spaces or symbols</p>
-					<p>e.g. <code>DrExample</code></p></label
-				>
+					<p>e.g. <code>DrExample</code></p>
+				</label>
 				<input
 					id="connect:nick"
 					v-model="defaults.nick"
@@ -199,12 +199,12 @@
 				/>
 			</div>
 			<div class="connect-row">
-				<label for="connect:realname"
-					><p><b>WHOIS name/identity</b></p>
+				<label for="connect:realname">
+					<p><b>WHOIS name/identity</b></p>
 					<p>Spaces and symbols allowed, shown in <code>/whois</code></p>
 					<p>e.g. <code>Dr. Jamie Example</code></p>
-					<p></p
-				></label>
+					<p></p>
+				</label>
 
 				<input
 					id="connect:realname"
@@ -215,11 +215,11 @@
 				/>
 			</div>
 			<div class="connect-row">
-				<label for="connect:leaveMessage"
-					><p><b>Leave message</b></p>
+				<label for="connect:leaveMessage">
+					<p><b>Leave message</b></p>
 					<p>Displayed when you disconnect</p>
-					<p
-				/></label>
+					<p />
+				</label>
 				<input
 					id="connect:leaveMessage"
 					v-model.trim="defaults.leaveMessage"
@@ -308,7 +308,10 @@ the server tab on new connection"
 						Username + password (SASL PLAIN)
 					</label>
 					<label
-						v-if="!store.state.serverConfiguration?.public && defaults.tls"
+						v-if="
+							!store.state.serverConfiguration?.public &&
+							(defaults.status?.secure || defaults.tls)
+						"
 						class="opt"
 					>
 						<input

@@ -40,7 +40,9 @@ export default defineComponent({
 			const network = store.getters.findNetwork(data.uuid);
 
 			if (network) {
-				network.name = network.channels[0].name = data.name;
+				if (data.name) {
+					network.name = network.channels[0].name = data.name;
+				}
 
 				switchToChannel(network.channels[0]);
 			}
