@@ -345,13 +345,17 @@ class Network {
 			delete this.irc.options.socks;
 		}
 
+		if (this.irc.options.tls) {
+			// Always use if possible, to ease PLAIN -> EXTERNAL conversion
+			this.irc.options.client_certificate = ClientCertificate.get(this.uuid);
+		}
+
 		if (!this.sasl) {
 			delete this.irc.options.sasl_mechanism;
 			delete this.irc.options.account;
 		} else if (this.sasl === "external") {
 			this.irc.options.sasl_mechanism = "EXTERNAL";
 			this.irc.options.account = {};
-			this.irc.options.client_certificate = ClientCertificate.get(this.uuid);
 		} else if (this.sasl === "plain") {
 			delete this.irc.options.sasl_mechanism;
 			this.irc.options.account = {
@@ -399,17 +403,17 @@ class Network {
 		const oldRealname = this.realname;
 
 		this.keepNick = null;
-		this.nick = args.nick;
-		this.host = String(args.host || "");
-		this.name = String(args.name || "") || this.host;
-		this.port = parseInt(args.port, 10);
+		this.nick = args.nick || this.nick;
+		this.host = String(args.host || this.host || "");
+		this.name = String(args.name || this.name || "") || this.host;
+		this.port = parseInt(args.port, 10) || this.port;
 		this.tls = !!args.tls;
 		this.rejectUnauthorized = !!args.rejectUnauthorized;
 		this.password = String(args.password || "");
 		this.username = String(args.username || "");
 		this.realname = String(args.realname || "");
-		this.leaveMessage = String(args.leaveMessage || "");
-		this.sasl = String(args.sasl || "");
+		this.leaveMessage = String(args.leaveMessage || "") || this.leaveMessage;
+		this.sasl = String(args.sasl || "") || this.sasl;
 		this.saslAccount = String(args.saslAccount || "");
 		this.saslPassword = String(args.saslPassword || "");
 
