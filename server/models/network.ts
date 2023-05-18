@@ -412,10 +412,15 @@ class Network {
 		this.password = String(args.password || "");
 		this.username = String(args.username || "");
 		this.realname = String(args.realname || "");
-		this.leaveMessage = String(args.leaveMessage || "") || this.leaveMessage;
-		this.sasl = String(args.sasl || "") || this.sasl;
-		this.saslAccount = String(args.saslAccount || "");
-		this.saslPassword = String(args.saslPassword || "");
+		// Don't confuse clearing these fields with just omitting them from the input
+		if (this.leaveMessage !== undefined) {
+			this.leaveMessage = String(args.leaveMessage || "");
+		}
+		if (this.sasl !== undefined) {
+			this.sasl = String(args.sasl || "");
+			this.saslAccount = String(args.saslAccount || "");
+			this.saslPassword = String(args.saslPassword || "");
+		}
 
 		this.proxyHost = String(args.proxyHost || "");
 		this.proxyPort = parseInt(args.proxyPort, 10);
