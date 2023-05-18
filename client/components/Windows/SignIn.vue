@@ -49,6 +49,11 @@
 			<div v-if="errorShown" class="error">Authentication failed.</div>
 
 			<button :disabled="inFlight" type="submit" class="btn">Sign in</button>
+
+			<div>
+				Need an account?
+				<a href="https://skipirc.miraheze.org/wiki/VIP_Lounge">Sign up here!</a>
+			</div>
 		</form>
 	</div>
 </template>
