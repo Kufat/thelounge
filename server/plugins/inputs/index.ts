@@ -35,14 +35,19 @@ const clientSideCommands = ["/collapse", "/expand", "/search"];
 const passThroughCommands = [
 	"/as",
 	"/bs",
+	"/chanserv",
 	"/cs",
 	"/ho",
 	"/hs",
+	"/identify",
 	"/join",
 	"/ms",
 	"/ns",
+	"/nickserv",
 	"/os",
 	"/rs",
+	"/setgender",
+	"/setpronouns",
 ];
 
 const userInputs = new Map<string, Plugin>();
