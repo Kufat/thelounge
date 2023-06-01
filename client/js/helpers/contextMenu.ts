@@ -365,6 +365,7 @@ export function generateUserContextMenu(
 		"@": "operator",
 		"%": "half-op",
 		"+": "voice",
+		"^": "greenlighter",
 	};
 
 	// Labels for the mode changes.  For example .rev({mode: "a", symbol: "&"}) => 'Revoke admin (-a)'

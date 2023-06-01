@@ -1806,6 +1806,10 @@ part/quit messages where we don't load previews (adds a blank line otherwise) */
 	content: "Voiced";
 }
 
+#chat .user-mode.greenlighter::before {
+	content: "Greenlighter";
+}
+
 #chat .user-mode.normal::before {
 	content: "Users";
 }
