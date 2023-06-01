@@ -70,6 +70,7 @@ const modes = {
 	"@": "op",
 	"%": "half-op",
 	"+": "voice",
+	"^": "greenlighter",
 	"": "normal",
 };
 
